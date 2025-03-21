@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Conta</title>
+    <link rel="icon" href="ico.svg">
+    <!--FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="top">
+        <a href="index.html"><img src="top.svg" alt=""></a>
+    </div>
+    <div id="container">
+        <div id="text">
+            <h1>Nova Conta</h1>
+            <h2>Digite os seus dados de acesso no campo abaixo.</h2>
+        </div>
+        <div class="input">
+            <p>Nome</p>
+            <input type="text" name="nome" placeholder="Digite seu Nome">
+            <p>E-mail</p>
+            <input type="text" name="nome" placeholder="Digite seu E-mail">
+            <p>Senha</p>
+            <input type="password" name="nome" placeholder="Digite sua Senha">
+            <p>Número de telefone</p>
+            <input type="text" maxlength="15" oninput="formatarTelefone(this)" name="nome" placeholder="(00) 00000-0000">
+        </div>
+        <a href="fdl.html"><button><h1>Criar</h1></button></a>
+    </div>
+
+
+
+
+
+    <!--SCRIPTS-->
+    <script>
+        function formatarTelefone(input) {
+            // Remove tudo o que não é número
+            let valor = input.value.replace(/\D/g, '');
+
+            // Adiciona a formatação conforme o padrão (00) 00000-0000
+            if (valor.length <= 2) {
+                input.value = `(${valor}`;
+            } else if (valor.length <= 6) {
+                input.value = `(${valor.substring(0, 2)}) ${valor.substring(2)}`;
+            } else if (valor.length <= 10) {
+                input.value = `(${valor.substring(0, 2)}) ${valor.substring(2, 7)}-${valor.substring(7)}`;
+            } else {
+                input.value = `(${valor.substring(0, 2)}) ${valor.substring(2, 7)}-${valor.substring(7, 11)}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
